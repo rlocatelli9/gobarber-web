@@ -21,7 +21,7 @@ export default function SignUp() {
   return (
     <>
       <img src={logo} alt="Logo GoBarber" />
-      <Form schema={schema} onSubmit={handleSubmit} autocomplete="off">
+      <Form schema={schema} onSubmit={handleSubmit} autoComplete="off">
         <Input
           type="text"
           name="name"
