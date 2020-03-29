@@ -33,7 +33,7 @@ export default function SignIn() {
         <Input
           type="password"
           name="password"
-          id="passwor"
+          id="password"
           placeholder="Sua senha secreta"
         />
 
