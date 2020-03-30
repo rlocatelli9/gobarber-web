@@ -43,6 +43,21 @@ export function* signUp({ payload }) {
       provider: true,
     });
 
+    const response = yield call(api.post, 'sessions', {
+      email,
+      password,
+    });
+
+    const { token, user } = response.data;
+
+    if (!user.provider) {
+      toast.info('Usuário não é prestador');
+    }
+
+    api.defaults.headers.Authorization = `Bearer ${token}`;
+
+    yield put(signInSuccess(token, user));
+
     history.push('/dashboard');
   } catch (error) {
     toast.error('Falha no cadastro. Verifique os dados!');
